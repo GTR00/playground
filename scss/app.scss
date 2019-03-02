@@ -1,0 +1,6 @@
+@import "neat";
+
+.container{
+    @include grid-container;
+    background-color: red;
+}

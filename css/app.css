@@ -1,0 +1,6 @@
+.container {
+  background-color: red; }
+  .container::after {
+    clear: both;
+    content: "";
+    display: block; }
