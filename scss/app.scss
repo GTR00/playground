@@ -2,5 +2,20 @@
 
 .container{
     @include grid-container;
-    background-color: red;
+    @include grid-visual(rgb(219, 219, 219));
+    // background-color: red;
+
+    .header {
+        @include grid-column(12);
+    }
+
+    h1 {
+        @include grid-column(3);
+        @include grid-push(5);
+    }
+
+    blockquote {
+        @include grid-column(2);
+    }
 }
+

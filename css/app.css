@@ -1,6 +1,19 @@
 .container {
-  background-color: red; }
+  background-image: repeating-linear-gradient(to right, transparent, transparent 20px, #dbdbdb 20px, #dbdbdb calc(8.33333% - 21.66667px + 20px)); }
   .container::after {
     clear: both;
     content: "";
     display: block; }
+  .container .header {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px; }
+  .container h1 {
+    width: calc(25% - 25px);
+    float: left;
+    margin-left: 20px;
+    margin-left: calc(41.66667% - 28.33333px + 40px); }
+  .container blockquote {
+    width: calc(16.66667% - 23.33333px);
+    float: left;
+    margin-left: 20px; }

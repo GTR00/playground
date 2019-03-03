@@ -1,26 +1,26 @@
-var gulp       = require("gulp"),
-    connect    = require("gulp-connect"),
+var gulp = require("gulp"),
+    connect = require("gulp-connect"),
     // autoprefix = require("gulp-autoprefixer"),
     // bourbon    = require("bourbon").includePaths,
-    neat       = require("bourbon-neat").includePaths,
-    sass       = require("gulp-sass");
+    neat = require("bourbon-neat").includePaths,
+    sass = require("gulp-sass");
 
 var paths = {
-  scss: ["./scss/**/*.scss"]
+  scss: ["./scss/*.scss"]
 };
 
 gulp.task("sass", function () {
   return gulp.src(paths.scss)
     .pipe(sass({
-        sourcemaps: true,
-        includePaths: [neat]
+      sourcemaps: true,
+      includePaths: [neat]
     }))
     // .pipe(autoprefix("last 2 versions"))
     .pipe(gulp.dest("./css"))
-    // .pipe(connect.reload());
+    .pipe(connect.reload());
 });
 
-gulp.task("connect", function() {
+gulp.task("connect", function () {
   connect.server({
     root: "source",
     port: 8000,
@@ -28,6 +28,9 @@ gulp.task("connect", function() {
   });
 });
 
-gulp.task("default", gulp.series("sass", "connect"), function() {
-  gulp.watch(paths.scss, ["sass"]);
+gulp.task('watch_scss', function () {
+  gulp.watch(paths.scss, gulp.series('sass'));
 });
+
+
+gulp.task("default", gulp.series('watch_scss'));
